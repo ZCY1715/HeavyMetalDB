@@ -1,0 +1,62 @@
+:root {
+  --theme-color: #F4AF43;
+  --el-color-primary: var(--theme-color);
+}
+
+html,
+body,
+#q-app {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url('../assets/font/Ubuntu-Regular.ttf');
+}
+
+* {
+  overflow: hidden;
+  font-family: "Ubuntu", serif !important;
+  font-size: 18px;
+}
+
+.el-message {
+  font-weight: bold;
+  border-radius: 15px;
+  overflow: visible !important;
+}
+
+.is-active {
+  color: var(--theme-color) !important;
+}
+
+.el-message-box * {
+  font-size: 16px !important;
+}
+
+.el-button * {
+  font-size: 14px !important;
+}
+
+.el-popper {
+  max-width: 400px !important;
+}
+
+.el-table *{
+  overflow: visible;
+}
+
+input{
+  caret-color: var(--theme-color);
+}
+
+input::placeholder {
+  font-size: 16px;
+  color: #999;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

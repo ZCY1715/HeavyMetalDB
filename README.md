@@ -1,4 +1,8 @@
-## 首次运行程序
+
+# HeavyMetalDB
+> an app for heavy metal database
+
+### 首次运行程序
 
 生成 _data 文件夹
 
