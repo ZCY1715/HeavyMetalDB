@@ -360,17 +360,18 @@ export default {
         width: this.chart.root.offsetWidth,
         height: this.chart.root.offsetHeight
       }).then((canvas) => {
-        var context = canvas.getContext('2d');
-        context.mozImageSmoothingEnabled = false;
-        context.webkitImageSmoothingEnabled = false;
-        context.msImageSmoothingEnabled = false;
-        context.imageSmoothingEnabled = false;
+        var context = canvas.getContext('2d')
+        context.mozImageSmoothingEnabled = false
+        context.webkitImageSmoothingEnabled = false
+        context.msImageSmoothingEnabled = false
+        context.imageSmoothingEnabled = false
         const dataURL = canvas.toDataURL()
         const a = document.createElement('a')
         this.$el.appendChild(a)
         a.download = `image-${Date.now().toString()}.png`
         a.href = dataURL
         a.click()
+        a.remove()
       })
     }
   },
