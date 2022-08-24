@@ -16,6 +16,7 @@
     "crypto-js": "^4.1.1",
     "echarts": "^5.3.3",
     "element-plus": "^2.2.14",
+    "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
     "js-yaml": "^4.1.0",
     "pinia": "^2.0.11",
