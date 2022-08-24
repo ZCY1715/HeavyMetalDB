@@ -48,7 +48,7 @@ export function uploader(el, callback) {
   oRealButton.addEventListener("change", () => {
     const file = oRealButton.files[0]
     callback && callback(file)
-    oRealButton.remove()
+    oRealButton.value = ""
   })
   el.parentNode.appendChild(oRealButton)
   el.addEventListener("click", () => {

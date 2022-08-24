@@ -67,8 +67,6 @@ export default {
           })
         }
 
-        console.log(newDataArr)
-
         for (const newData of newDataArr) {
           this.store.dataSet.addOneData(newData)
         }

@@ -4,6 +4,7 @@ import { FilterEntity, DataEntity } from '../../core'
 import Charts from 'src/components/Charts.vue'
 import Logout from 'components/Logout.vue'
 import { initData } from "../../core/index"
+import Export from 'components/Export.vue'
 
 export default {
   data() {
@@ -14,7 +15,7 @@ export default {
       showMakeChartPanel: false,
     }
   },
-  components: { Charts, Logout },
+  components: { Charts, Logout, Export },
   computed: {
     filterData() {
       return this.store.filterSet.getFormatData()
@@ -29,7 +30,7 @@ export default {
     matchedData() {
       return this.store.dataSet.getData(this.filter)
     },
-    chartData() {
+    mainData() {
       return this.matchedData.map(item => item.data)
     }
   },
@@ -70,6 +71,7 @@ export default {
     <span :class="$style.dataTitle">
       <span>* 数据集：</span>
       <span>
+        <Export :class="$style.control" :data="mainData" :titles="titles" />
         <span :class="$style.control" @click="() => showMakeChartPanel = true">根据筛选数据生成图像</span>
       </span>
     </span>
@@ -83,7 +85,7 @@ export default {
       </el-table-column>
     </el-table>
     <el-dialog v-model="showMakeChartPanel" v-if="showMakeChartPanel" title="图像生成" :width="800">
-      <Charts :data="chartData" :titles="titles" :canDownload="false" />
+      <Charts :data="mainData" :titles="titles" :canDownload="false" />
     </el-dialog>
   </div>
 </template>
