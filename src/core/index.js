@@ -207,6 +207,7 @@ class FilterSet {
     this.data.data[nonce].options.nonce += 1
     this.data.data[nonce].options.data[this.data.data[nonce].options.nonce] = option
     this.save()
+    return this.data.data[nonce].options.nonce
   }
   modifyFilterOption(nonce, optionNonce, name) {
     if (

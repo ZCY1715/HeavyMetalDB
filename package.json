@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "quasar dev -m electron",
+    "publish": "git add . && git commit -a --allow-empty-message -m '' && git push",
     "build:win32": "quasar build -m electron -T win32",
     "build:darwin": "quasar build -m electron -T darwin"
   },
@@ -21,7 +22,8 @@
     "quasar": "^2.6.0",
     "vue": "^3.0.0",
     "vue-echarts": "^6.2.3",
-    "vue-router": "^4.0.0"
+    "vue-router": "^4.0.0",
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.0.0",

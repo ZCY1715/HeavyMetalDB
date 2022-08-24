@@ -2,6 +2,8 @@
 import useStore from 'stores/store'
 import { FilterEntity, DataEntity } from '../../core'
 import Charts from 'src/components/Charts.vue'
+import Export from 'components/Export.vue'
+import Import from 'components/Import.vue'
 
 export default {
   data() {
@@ -16,7 +18,7 @@ export default {
       dataIndex: null
     }
   },
-  components: { Charts },
+  components: { Charts, Export, Import },
   computed: {
     filterData() {
       return this.store.filterSet.getFormatData()
@@ -31,7 +33,7 @@ export default {
     matchedData() {
       return this.store.dataSet.getData(this.filter)
     },
-    chartData() {
+    mainData() {
       return this.matchedData.map(item => item.data)
     }
   },
@@ -121,7 +123,9 @@ export default {
     <span :class="$style.dataTitle">
       <span>* 数据集：</span>
       <span>
-        <span :class="$style.control" @click="() => showMakeChartPanel = true">根据筛选数据生成图像</span>
+        <Import :class="$style.control" :titles="filterData" />
+        <Export :class="$style.control" :data="mainData" :titles="titles" />
+        <span :class="$style.control" @click="() => showMakeChartPanel = true">生成图像</span>
         <span :class="$style.control" @click="() => toShowAddDataPanel()">添加数据</span>
       </span>
     </span>
@@ -174,8 +178,8 @@ export default {
         </div>
       </template>
     </el-dialog>
-    <el-dialog v-model="showMakeChartPanel" v-if="showMakeChartPanel" title="图像生成" :width="800">
-      <Charts :data="chartData" :titles="titles" :canDownload="true" />
+    <el-dialog v-model="showMakeChartPanel" v-if="showMakeChartPanel" title="生成图像" :width="800">
+      <Charts :data="mainData" :titles="titles" :canDownload="true" />
     </el-dialog>
   </div>
 </template>
